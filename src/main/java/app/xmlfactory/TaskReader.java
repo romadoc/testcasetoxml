@@ -3,11 +3,13 @@
  * "Название поля в тест кейсе": "Название поля в вашем классе"
  * разделителем является двоеточие + пробел
  * файл должен располагаться в ../src/app/filestorage иметь формат .txt
+ *
  * @author Raman Darashenka
  */
 package app.xmlfactory;
-import java.io.*;
-import java.nio.charset.StandardCharsets;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.LinkedHashMap;
 import java.util.Scanner;
 
@@ -23,10 +25,10 @@ public class TaskReader {
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
 
-                String[] parts = line.split(": "); // при необходимости измените разделитель
-                String key = parts[0].trim();
-                String value = parts[1].trim();
-                map.put(key, value);
+            String[] parts = line.split(": "); // при необходимости измените разделитель
+            String key = parts[0].trim();
+            String value = parts[1].trim();
+            map.put(key, value);
 
         }
 

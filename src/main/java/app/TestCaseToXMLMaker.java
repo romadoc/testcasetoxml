@@ -1,11 +1,13 @@
 /**
  * Класс-стартер приложения
  * При необходимости внесите изменение в параметры методов этого класса
+ *
  * @author Raman Darashenka
  */
 package app;
 
 import app.xmlfactory.XmlCreator;
+
 import javax.xml.stream.XMLStreamException;
 import java.io.IOException;
 

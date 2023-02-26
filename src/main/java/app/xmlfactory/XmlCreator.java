@@ -1,6 +1,7 @@
 /**
  * Класс, создающий результат в виде XML файла. Созданный файл будет располагаться по пути:
  * ../src/app/filestorage
+ *
  * @author Raman Darashenka
  */
 package app.xmlfactory;
@@ -21,7 +22,7 @@ public class XmlCreator {
         String userDir = System.getProperty("user.dir");
         XMLOutputFactory factory = XMLOutputFactory.newInstance();
         XMLStreamWriter writer = factory.createXMLStreamWriter(new FileWriter(userDir +
-                "/src/main/java/app/filestorage/"+ outputFileName +".xml")); //результирующий XML- файл
+                "/src/main/java/app/filestorage/" + outputFileName + ".xml")); //результирующий XML- файл
 
         LinkedHashMap<String, String> dataMap = testCaseReader.getDataForXml(inputFileName, taskFileName);
 
