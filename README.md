@@ -21,7 +21,7 @@ PS При необходимости названия можно изменят�
 (см. формат [образца](src/main/java/app/examples))
 2. В указанную директорию поместите текстовый файл task.txt, оформленный согласно [образцу](src/main/java/app/examples)
 ![task.txt picture](src/main/java/app/examples/tasktxt.jpg) 
-3. Запустите класс [TestCaseToXmlMaker](src/main/java/app/TestCaseToXMLMaker.java)
+3. Запустите main метод в классе [TestCaseToXmlMaker](src/main/java/app/TestCaseToXMLMaker.java)
 4. в директории [filestorage](src/main/java/app/filestorage) будет сформирован XML-файл  
 
 ### PS
