@@ -7,7 +7,7 @@
 package app.xmlfactory;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 public class TestCaseReader {
 
-    public LinkedHashMap<String, String> getDataForXml(String inputFileName, String taskFileName) throws FileNotFoundException {
+    public LinkedHashMap<String, String> getDataForXml(String inputFileName, String taskFileName) throws IOException {
         String userDir = System.getProperty("user.dir");
         String path = userDir + "/src/main/java/app/filestorage/" + inputFileName;
         LinkedHashMap<String, String> mapTask = new TaskReader().readTask(taskFileName);
@@ -27,7 +27,9 @@ public class TestCaseReader {
             System.out.println("Map is empty!");
             return mapForXmlCreator;
         }
-        File inputFile = new File(path);
+        TCFileReader tcFileReader = new TCFileReader();
+        //File inputFile = new File(path);
+        File inputFile = tcFileReader.transformFileToTxt(path);
         Scanner scanner = new Scanner(inputFile);
         String line;
         String pattern = "(.*):\\s(.*)";

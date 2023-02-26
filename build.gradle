@@ -12,6 +12,9 @@ repositories {
 dependencies {
     implementation 'com.ibm.icu:icu4j:69.1'
     implementation 'com.googlecode.juniversalchardet:juniversalchardet:1.0.3'
+    // https://mvnrepository.com/artifact/org.apache.poi/poi
+    implementation 'org.apache.poi:poi:5.2.2'
+
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 }
