@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<TypeYourClassName_Here>
+		<office>"Рога и Копыта" Гомель</office>
+		<products>Залоговый кредит (под почку)</products>
+		<type>деньги на казино</type>
+		<program>нет</program>
+		<addZalog>БМВ, Модель: Х5 (4х4)</addZalog>
+		<costs>31 000</costs>
+		<asked>50 000</asked>
+		<loanDate>60</loanDate>
+		
+</TypeYourClassName_Here>

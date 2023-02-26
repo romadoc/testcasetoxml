@@ -1,0 +1,8 @@
+Организация: office
+Продукты: products
+Тип: type
+Госпрограмма: program
+Доп залог: addZalog
+Стоимость ТС: costs
+Запрошено: asked
+Срок кредита, мес: loanDate
