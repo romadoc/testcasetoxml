@@ -32,11 +32,6 @@ public class TestCaseReader {
             return mapForXmlCreator;
         }
 
-
-       // File inputFile = tcFileReader.transformFileToTxt(path);
-//        if (inputFileName.endsWith(".xlsx")) {
-//            inputFileName = inputFileName.replace(".xlsx", ".txt");
-//        }
         Scanner scanner = new Scanner(inputFile);
         String line;
         String pattern = "(.*):\\s(.*)";

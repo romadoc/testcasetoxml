@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class TestCaseToXMLMaker {
     public static void main(String[] args) throws IOException, XMLStreamException {
-        String inputTestCaseFile = "input.txt";
+        String inputTestCaseFile = "exel.xlsx";
         String inputTaskFile = "task.txt";
         String xmlFileName = "created_data";
         XmlCreator xmlCreator = new XmlCreator();
