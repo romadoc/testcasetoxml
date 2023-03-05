@@ -15,8 +15,8 @@ public class TestCaseToXMLMaker {
     public static void main(String[] args) throws IOException, XMLStreamException {
         String inputTestCaseFile = "input.txt";
         String inputTaskFile = "task.txt";
-        String xmlFileNime = "created_data";
+        String xmlFileName = "created_data";
         XmlCreator xmlCreator = new XmlCreator();
-        xmlCreator.createXML(inputTestCaseFile, inputTaskFile, xmlFileNime);
+        xmlCreator.createXML(inputTestCaseFile, inputTaskFile, xmlFileName);
     }
 }

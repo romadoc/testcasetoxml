@@ -15,10 +15,14 @@ import java.util.Scanner;
 
 
 public class TestCaseReader {
-
+    TCFileReader tcFileReader = new TCFileReader();
     public LinkedHashMap<String, String> getDataForXml(String inputFileName, String taskFileName) throws IOException {
         String userDir = System.getProperty("user.dir");
         String path = userDir + "/src/main/java/app/filestorage/" + inputFileName;
+        File inputFile = tcFileReader.transformFileToTxt(path);
+        if (path.endsWith(".xlsx")) {
+            path = path.replace(".xlsx", ".txt");
+        }
         LinkedHashMap<String, String> mapTask = new TaskReader().readTask(taskFileName);
         LinkedHashMap<String, String> mapTestCase = new LinkedHashMap<>();
         LinkedHashMap<String, String> mapForXmlCreator = new LinkedHashMap<>();
@@ -27,9 +31,12 @@ public class TestCaseReader {
             System.out.println("Map is empty!");
             return mapForXmlCreator;
         }
-        TCFileReader tcFileReader = new TCFileReader();
-        //File inputFile = new File(path);
-        File inputFile = tcFileReader.transformFileToTxt(path);
+
+
+       // File inputFile = tcFileReader.transformFileToTxt(path);
+//        if (inputFileName.endsWith(".xlsx")) {
+//            inputFileName = inputFileName.replace(".xlsx", ".txt");
+//        }
         Scanner scanner = new Scanner(inputFile);
         String line;
         String pattern = "(.*):\\s(.*)";

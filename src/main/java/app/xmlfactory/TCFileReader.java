@@ -2,8 +2,8 @@ package app.xmlfactory;
 
 import java.io.File;
 import java.io.FileOutputStream;
-
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -17,24 +17,24 @@ public class TCFileReader {
         String fileName = inputFile.getName();
         if (fileName.endsWith(".txt")) {
             return inputFile;
-        } else if (fileName.endsWith(".xls")) {
-            Workbook workbook = WorkbookFactory.create(inputFile);
-            Sheet sheet = workbook.getSheetAt(0); // получаем первый лист
-            StringBuilder sb = new StringBuilder();
-            for (Row row : sheet) {
-                for (Cell cell : row) {
-                    sb.append(cell.getStringCellValue()).append(" ");
+        } else if (fileName.endsWith(".xlsx")) {
+            try (Workbook workbook = WorkbookFactory.create(inputFile)) {
+                Sheet sheet = workbook.getSheetAt(0); // получаем первый лист
+                StringBuilder sb = new StringBuilder();
+                for (Row row : sheet) {
+                    Cell cell = row.getCell(1); // получаем вторую ячейку (столбец) из текущей строки
+                    if (cell != null) {
+                        sb.append(cell.toString()).append("\n"); // добавляем значение ячейки в StringBuilder
+                    }
                 }
-                sb.append("\n");
+                // создаем новый текстовый файл с тем же именем, но расширением .txt
+                String txtFileName = fileName.substring(0, fileName.lastIndexOf(".")) + ".txt";
+                File outputFile = new File(inputFile.getParentFile(), txtFileName);
+                try (FileOutputStream fos = new FileOutputStream(outputFile)) {
+                    fos.write(sb.toString().getBytes(StandardCharsets.UTF_8));
+                }
+                return outputFile;
             }
-            workbook.close();
-            // создаем новый текстовый файл с тем же именем, но расширением .txt
-            String txtFileName = fileName.substring(0, fileName.lastIndexOf(".")) + ".txt";
-            File outputFile = new File(inputFile.getParentFile(), txtFileName);
-            try (FileOutputStream fos = new FileOutputStream(outputFile)) {
-                fos.write(sb.toString().getBytes());
-            }
-            return outputFile;
         } else {
             return null;
         }
